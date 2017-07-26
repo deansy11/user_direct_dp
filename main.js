@@ -1,26 +1,29 @@
 const express = require("express");
-const app = express();
+const mustacheExpress = require('mustache-express');
 const path = require("path");
 const fs = require("fs");
+const app = express();
 const DATA = require("./views/data");
 
-const mustacheExpress = require('mustache-express');
 app.engine("mustache", mustacheExpress());
+app.set("views", "./views");
 app.set("view engine", "mustache");
-app.set("views", path.join(__dirname, "views"));
 
-app.get("/", (req, res) => {
-  res.render("index.mustache", DATA);
+app.get("/", function(req, res){
+  console.log("Is working?");
+  res.render("main", DATA);
 });
 
-module.exports
+// let userData = DATA.module.exports.users
 
-// To link CSS sheets
+// To link CSS sheets check Express static notes
+app.use(express.static('public'));
+
 app.get("/styles.css", (req,res) => {
   res.send(fs.readFileSync('./styles.css'));
 });
 
 
-app.listen(3000, function() {
-  console.log("https://localhost:3000");
-})
+app.listen(8080, function() {
+  console.log("here we are");
+});

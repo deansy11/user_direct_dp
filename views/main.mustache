@@ -10,11 +10,14 @@
       <h1>Index</h1>
     </header>
     <ul>
-      {userData}
-      <li>
-
-      </li>
+      {{#users}}
+        <li>
+          <h3>{{ name }}</h3>
+          {{#job}}
+          <img width"100" src="{{avatar}}" alt="">
+          {{/job}}
+        </li>
+      {{/users}}
     </ul>
-
   </body>
 </html>

@@ -3,3 +3,14 @@ ul {
   display: flex;
   flex-wrap: wrap;
 }
+
+li {
+  border: .5px solid #716762;
+  width: 190px;
+  height: 270px;
+}
+
+ul {
+  margin: 10 15px 10 15px;
+
+}

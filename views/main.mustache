@@ -10,14 +10,26 @@
       <h1>Index</h1>
     </header>
     <ul>
-      {{#users}}
-        <li>
-          <img width"100" src="{{ avatar }}" alt="">
-          <h3>{{ name }}</h3>
-          <h4>{{ job }}</h4>
-          <h4>{{ company }}</h4>
-        </li>
-      {{/users}}
+      {{ #users }}
+        {{ #job }}
+          <li>
+            <img width"100" src={{ avatar }}>
+            <a href="/{{ id }}">
+              <h3 class="name">{{ name }}</h3>
+            </a>
+            <span>{{ job }}, {{ company }}</span>
+          </li>
+        {{ /job }}
+        {{ ^job }}
+          <li>
+            <img width"100" src={{ avatar }}>
+            <a href="/{{ id }}">
+              <h3 class="name">{{ name }}</h3>
+            </a>
+            <span class="noJob">Available for Hire!</span>
+          </li>
+        {{ /job }}
+      {{ /users }}
     </ul>
   </body>
 </html>

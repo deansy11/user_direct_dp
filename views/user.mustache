@@ -6,18 +6,26 @@
       <link rel="stylesheet" href="/user.css">
   </head>
   <body>
-    <section class="userImage">
-      <img src= {{ avatar }} alt="">
+    <section class="user">
+      <img class="profPic" src= {{ avatar }} alt="">
+      <span class="robotName"> {{ name }} </span>
       <div class="personal">
+        {{ #job }}
         <span> {{ address.city }}, {{ job }}, {{ company }}</span>
-        <span> {{ email }}, {{ phone }}</span>
+        <span> {{ email }} | {{ phone }}</span>
       <div class="edSkills">
         <span class="education">Education</span><span> {{ university }}</span>
         <span class="skills">Skills</span><span> {{ skills }}</span>
-
       </div>
-
-
+      {{ /job }}
+      {{ ^job }}
+        <span> {{ address.city }}, {{ job }}, {{ company }}</span>
+        <span> {{ email }} | {{ phone }}</span>
+      <div class="edSkills">
+        <span class="education">Education</span><span> {{ university }}</span>
+        <span class="skills">Skills</span><span> {{ skills }}</span>
+      </div>
+      {{ /job }}
       </div>
     </section>
   </body>
